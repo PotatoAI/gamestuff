@@ -5,14 +5,7 @@ end
 
 ## Get keys state from a string
 function getKeysState(ks::String)::Dict{Char, Int16}
-    state = Dict()
-
-    for k in ks
-        v = getKeyState(k)
-        state[k] = v
-    end
-
-    state
+    Dict(k => getKeyState(k) for k in ks)
 end
 
 getKeysState("WSAD")
